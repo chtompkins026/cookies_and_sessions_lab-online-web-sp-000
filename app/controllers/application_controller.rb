@@ -5,7 +5,10 @@ class ApplicationController < ActionController::Base
   helper_method :cart
 
   def cart 
-    @cart = session[:cart] || []
+  session[:cart_id] = @cart.id
+ 
+  # load the cart referenced in the session
+  @cart = session[:cart_id]
   end 
 
 end
